@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import classNames from "classnames";
 
@@ -33,14 +33,6 @@ const BINGO_CONTENT = [
 function App() {
   const [tiles, setTiles] = useState(Array(25).fill(false));
   const [bingoCount, setBingoCount] = useState(0);
-  const [showBingo, setShowBingo] = useState(false);
-
-  // Initialize free space
-  useEffect(() => {
-    const newTiles = [...tiles];
-    newTiles[18] = true; // FREE SPACE is at index 18
-    setTiles(newTiles);
-  }, []);
 
   const checkBingo = (newTiles) => {
     const rows = [
@@ -73,18 +65,12 @@ function App() {
   };
 
   const handleTileClick = (index) => {
-    if (index === 18) return; // FREE SPACE can't be unticked
-
     const newTiles = [...tiles];
     newTiles[index] = !newTiles[index];
     setTiles(newTiles);
 
     const newBingoCount = checkBingo(newTiles);
     setBingoCount(newBingoCount);
-
-    if (newBingoCount > 0 && !showBingo) {
-      setShowBingo(true);
-    }
   };
 
   const handleScreenshot = async () => {
@@ -97,51 +83,42 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4">
-      <header className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-2">Job Seeker Struggles Bingo</h1>
-        <p className="text-gray-600">
+    <div className="h-screen flex flex-col p-2">
+      <header className="text-center mb-2">
+        <h1 className="text-2xl font-bold">Job Seeker Struggles Bingo</h1>
+        <p className="text-xs text-gray-600">
           Let it out. You've earned this. Tick what you've survived.
         </p>
-        <div className="mt-4 text-lg font-semibold">Bingos: {bingoCount}</div>
+        <div className="text-sm font-semibold">Bingos: {bingoCount}</div>
       </header>
 
-      <div id="bingo-grid" className="bingo-grid">
-        {BINGO_CONTENT.map((content, index) => (
-          <div
-            key={index}
-            className={classNames("bingo-tile", {
-              ticked: tiles[index],
-              "free-space": index === 18,
-            })}
-            onClick={() => handleTileClick(index)}
-          >
-            <div className="text-sm font-medium text-center">{content}</div>
-            {tiles[index] && (
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl">
-                ✅
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="flex-grow flex items-center justify-center">
+        <div id="bingo-grid" className="bingo-grid">
+          {BINGO_CONTENT.map((content, index) => (
+            <div
+              key={index}
+              className={classNames("bingo-tile", {
+                ticked: tiles[index],
+              })}
+              onClick={() => handleTileClick(index)}
+            >
+              <div className="text-xs font-medium text-center">{content}</div>
+              {tiles[index] && (
+                <div className="absolute bottom-0 right-0 text-sm">✅</div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {showBingo && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg text-center">
-            <h2 className="text-3xl font-bold mb-4">BINGO! 🎉</h2>
-            <p className="mb-6">
-              You've survived the job search! Share your achievement!
-            </p>
-            <button
-              onClick={handleScreenshot}
-              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Download & Share
-            </button>
-          </div>
-        </div>
-      )}
+      <div className="flex justify-center mt-2">
+        <button
+          onClick={handleScreenshot}
+          className="bg-primary text-white px-4 py-1 rounded-lg hover:bg-primary/90 transition-colors shadow-lg text-sm"
+        >
+          Download & Share
+        </button>
+      </div>
     </div>
   );
 }
