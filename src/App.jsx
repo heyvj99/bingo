@@ -122,12 +122,25 @@ function App() {
   };
 
   const handleScreenshot = async () => {
-    const element = document.getElementById("bingo-grid");
-    const canvas = await html2canvas(element);
+    // Capture the entire page content
+    const element = document.querySelector(".min-h-screen");
+    if (!element) return;
+
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#FEF9C3", // Match the bg-yellow-200 color
+      logging: false,
+      allowTaint: true,
+      foreignObjectRendering: true,
+    });
+
     const link = document.createElement("a");
     link.download = "job-seeker-bingo.png";
-    link.href = canvas.toDataURL();
+    link.href = canvas.toDataURL("image/png", 1.0);
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   const handleReset = () => {
