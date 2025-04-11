@@ -128,8 +128,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col p-4 bg-yellow-100">
-      <header className="text-center mb-4">
+    <div className="min-h-screen flex flex-col p-4 bg-yellow-200">
+      <header className="text-center mb-4 flex flex-col gap-2">
         <h1 className="neo-title mb-1 font-display">Job Seeker Struggles</h1>
         <p className="neo-subtitle text-black/80 font-display">
           Let it out. You've earned this. Tick what you've survived.
@@ -192,7 +192,7 @@ function App() {
         </button>
         <button
           onClick={handleReset}
-          className="neo-button font-display bg-red-500"
+          className="neo-button font-display bg-white text-dark"
         >
           RESET
         </button>

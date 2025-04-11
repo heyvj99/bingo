@@ -9,7 +9,7 @@ const BingoLine = ({ type, position, isCompleted }) => {
       setShowConfetti(true);
       const timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 1000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [isCompleted]);

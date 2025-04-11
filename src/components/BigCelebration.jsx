@@ -27,7 +27,7 @@ const BigCelebration = ({ isActive }) => {
       <Confetti
         width={windowSize.width}
         height={windowSize.height}
-        numberOfPieces={300}
+        numberOfPieces={2300}
         recycle={false}
         gravity={0.5}
         initialVelocityY={70}
@@ -53,7 +53,7 @@ const BigCelebration = ({ isActive }) => {
       <Confetti
         width={windowSize.width}
         height={windowSize.height}
-        numberOfPieces={200}
+        numberOfPieces={1200}
         recycle={false}
         gravity={0.3}
         initialVelocityY={90}
@@ -79,7 +79,7 @@ const BigCelebration = ({ isActive }) => {
       <Confetti
         width={windowSize.width}
         height={windowSize.height}
-        numberOfPieces={150}
+        numberOfPieces={5000}
         recycle={false}
         gravity={0.7}
         initialVelocityY={50}
