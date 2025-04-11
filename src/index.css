@@ -21,7 +21,7 @@
   }
 
   .bingo-grid {
-    @apply grid grid-cols-5 gap-3 max-w-2xl mx-auto p-3;
+    @apply grid grid-cols-5 gap-2 max-w-2xl mx-auto p-2;
   }
 
   .neo-button {
@@ -42,4 +42,89 @@
     @apply text-lg font-medium;
     font-family: "Archivo Black", sans-serif;
   }
+}
+
+/* Neo-brutalist animations */
+@keyframes score-increase {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: invert(0%);
+  }
+  10% {
+    transform: scale(1.25) rotate(5deg);
+    filter: invert(0%);
+  }
+  20% {
+    transform: scale(1.2) rotate(3deg);
+    filter: invert(100%);
+  }
+  30% {
+    transform: scale(1.15) rotate(2deg);
+    filter: invert(0%);
+  }
+  40% {
+    transform: scale(1.1) rotate(1deg);
+    filter: invert(0%);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: invert(0%);
+  }
+}
+
+@keyframes bingo-line {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(5px);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  30% {
+    transform: translateX(3px);
+  }
+  40% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  70% {
+    transform: translateX(1px);
+  }
+  80% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes tile-pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(1.5) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.animate-score-increase {
+  animation: score-increase 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-bingo-line {
+  animation: bingo-line 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-tile-pulse {
+  animation: tile-pulse 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
