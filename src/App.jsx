@@ -8,8 +8,7 @@ import BigCelebration from "./components/BigCelebration";
 const BINGO_CONTENT = [
   "Got ghosted after the final round",
   "Applied for 1000+ roles",
-  "Laid off recently",
-  "Customized every resume",
+  "Customized resume for 100 applications",
   "Got rejected in <24 hours",
   "Interviewer didn't show up",
   "Asked to do unpaid project",
@@ -25,11 +24,12 @@ const BINGO_CONTENT = [
   "Applied for a role I was overqualified for",
   "Felt like giving up",
   "Attended networking events",
+  "Laid off recently",
   "Heard 'we went with another candidate'",
   "Reached final round twice this month",
-  "Rewrote portfolio 3 times",
+  "Rewrote portfolio 10 times",
   "Tried networking but no response",
-  "Did 10+ applications in one sitting",
+  "Did 20+ applications in one sitting",
   "Got a referral — still got rejected",
 ];
 
