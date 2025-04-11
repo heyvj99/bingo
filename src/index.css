@@ -4,21 +4,42 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 overflow-hidden;
+    @apply bg-yellow-100 text-black overflow-hidden;
+    font-family: "Inter", sans-serif;
   }
 }
 
 @layer components {
   .bingo-tile {
-    @apply relative p-2 border-2 border-gray-300 bg-white rounded-lg shadow-sm 
-           transition-all duration-300 hover:shadow-md cursor-pointer;
+    @apply relative p-2 border-4 border-black bg-white rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+           transition-all duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] cursor-pointer;
+    font-family: "Inter", sans-serif;
   }
 
   .bingo-tile.ticked {
-    @apply border-primary bg-primary/10;
+    @apply border-4 border-black bg-pink-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1;
   }
 
   .bingo-grid {
-    @apply grid grid-cols-5 gap-2 max-w-2xl mx-auto p-2;
+    @apply grid grid-cols-5 gap-3 max-w-2xl mx-auto p-3;
+  }
+
+  .neo-button {
+    @apply bg-blue-500 text-white px-6 py-2 border-4 border-black rounded-none 
+           shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-normal text-lg
+           transition-all duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] 
+           hover:translate-x-[-2px] hover:translate-y-[-2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+           active:translate-x-[2px] active:translate-y-[2px];
+    font-family: "Archivo Black", sans-serif;
+  }
+
+  .neo-title {
+    @apply text-3xl font-medium tracking-tight;
+    font-family: "Archivo Black", sans-serif;
+  }
+
+  .neo-subtitle {
+    @apply text-lg font-medium;
+    font-family: "Archivo Black", sans-serif;
   }
 }

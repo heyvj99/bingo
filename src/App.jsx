@@ -21,7 +21,7 @@ const BINGO_CONTENT = [
   "Had technical issues in interview",
   "Applied for a role I was overqualified for",
   "Felt like giving up",
-  "Got a referral from a stranger",
+  "FREE SPACE",
   "Heard 'we went with another candidate'",
   "Reached final round twice this month",
   "Rewrote portfolio 3 times",
@@ -83,13 +83,17 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col p-2">
-      <header className="text-center mb-2">
-        <h1 className="text-2xl font-bold">Job Seeker Struggles Bingo</h1>
-        <p className="text-xs text-gray-600">
+    <div className="h-screen flex flex-col p-3 bg-yellow-100">
+      <header className="text-center mb-3">
+        <h1 className="neo-title mb-1 font-display">
+          Job Seeker Struggles Bingo
+        </h1>
+        <p className="neo-subtitle text-black/80 font-display">
           Let it out. You've earned this. Tick what you've survived.
         </p>
-        <div className="text-sm font-semibold">Bingos: {bingoCount}</div>
+        <div className="mt-2 text-xl font-display bg-white border-2 border-black px-3 py-1 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          BINGOS: {bingoCount}
+        </div>
       </header>
 
       <div className="flex-grow flex items-center justify-center">
@@ -102,21 +106,15 @@ function App() {
               })}
               onClick={() => handleTileClick(index)}
             >
-              <div className="text-xs font-medium text-center">{content}</div>
-              {tiles[index] && (
-                <div className="absolute bottom-0 right-0 text-sm">✅</div>
-              )}
+              <div className="text-sm font-normal text-center">{content}</div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="flex justify-center mt-2">
-        <button
-          onClick={handleScreenshot}
-          className="bg-primary text-white px-4 py-1 rounded-lg hover:bg-primary/90 transition-colors shadow-lg text-sm"
-        >
-          Download & Share
+      <div className="flex justify-center mt-3">
+        <button onClick={handleScreenshot} className="neo-button font-display">
+          DOWNLOAD & SHARE
         </button>
       </div>
     </div>

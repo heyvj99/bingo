@@ -4,27 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#6366f1",
-        secondary: "#22c55e",
-        accent: "#f43f5e",
+        primary: "#FF3E00", // Bright orange
+        secondary: "#00F5FF", // Electric blue
+        accent: "#FF00FF", // Hot pink
+        dark: "#000000",
+        light: "#FFFFFF",
       },
       fontFamily: {
-        sans: ["Space Grotesk", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
+        display: ["Archivo Black", "sans-serif"],
       },
       animation: {
-        tick: "tick 0.3s ease-in-out",
-        untick: "untick 0.3s ease-in-out",
+        tick: "tick 0.2s ease-in-out",
+        untick: "untick 0.2s ease-in-out",
       },
       keyframes: {
         tick: {
-          "0%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.1)" },
-          "100%": { transform: "scale(1)" },
+          "0%": { transform: "scale(1) rotate(0deg)" },
+          "50%": { transform: "scale(1.05) rotate(1deg)" },
+          "100%": { transform: "scale(1) rotate(1deg)" },
         },
         untick: {
-          "0%": { transform: "scale(1)" },
-          "50%": { transform: "scale(0.9)" },
-          "100%": { transform: "scale(1)" },
+          "0%": { transform: "scale(1) rotate(1deg)" },
+          "50%": { transform: "scale(0.95) rotate(-1deg)" },
+          "100%": { transform: "scale(1) rotate(0deg)" },
         },
       },
     },
