@@ -24,7 +24,7 @@ const BINGO_CONTENT = [
   "Had technical issues in interview",
   "Applied for a role I was overqualified for",
   "Felt like giving up",
-  "Got a referral from strangers",
+  "Attended networking events",
   "Heard 'we went with another candidate'",
   "Reached final round twice this month",
   "Rewrote portfolio 3 times",
@@ -40,6 +40,17 @@ function App() {
   const [completedLines, setCompletedLines] = useState([]);
   const [previousBingoCount, setPreviousBingoCount] = useState(0);
   const [showBigCelebration, setShowBigCelebration] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update window width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Define all possible bingo lines
   const bingoLines = [
@@ -127,16 +138,28 @@ function App() {
     setShowBigCelebration(false);
   };
 
+  // Show mobile message for screens below 290px
+  if (windowWidth < 290) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-yellow-200">
+        <div className="mobile-message">
+          <h1 className="neo-title mb-2">Job Seeker Struggles</h1>
+          <p>To get a good experience, please access this on desktop.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 bg-yellow-200">
-      <header className="text-center mb-4 flex flex-col gap-1">
+    <div className="min-h-screen flex flex-col items-center p-2 sm:p-4 bg-yellow-200">
+      <header className="text-center mb-2 sm:mb-4 flex flex-col gap-1 w-full max-w-[min(100vw-1rem,42rem)]">
         <h1 className="neo-title mb-1 font-display">Job Seeker Struggles</h1>
         <p className="neo-subtitle text-black/80 font-display">
           Let it out. You've earned this. Tick what you've survived.
         </p>
       </header>
 
-      <div className="flex-grow flex items-center justify-center my-2">
+      <div className="flex-grow flex items-center justify-center my-2 w-full">
         <div id="bingo-grid" className="bingo-grid relative">
           {BINGO_CONTENT.map((content, index) => (
             <div
@@ -146,7 +169,7 @@ function App() {
               })}
               onClick={() => handleTileClick(index)}
             >
-              <div className="text-sm font-normal text-center">{content}</div>
+              <div className="tile-content">{content}</div>
             </div>
           ))}
           {/* Render bingo lines */}
@@ -183,11 +206,11 @@ function App() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center mx-2 mb-4 w-full px-[9px] max-w-2xl">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 my-4 w-full max-w-[min(100vw-1rem,42rem)]">
         <div>
           <AnimatedScore score={bingoCount} isAnimating={isScoreAnimating} />
         </div>
-        <div className="flex gap-4 ">
+        <div className="flex gap-2 sm:gap-4">
           <button
             onClick={handleReset}
             className="neo-button font-display bg-white text-dark"
