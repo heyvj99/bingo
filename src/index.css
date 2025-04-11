@@ -21,14 +21,21 @@
     display: flex;
     align-items: start;
     justify-content: center;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    /* word-break: break-word; */
+    white-space: normal;
+    /* overflow-wrap: break-word; */
   }
 
   .bingo-tile .tile-content {
     @apply text-[clamp(9.5px,1.2vw,0.9rem)] sm:text-[clamp(0.75rem,2vw,1rem)] max-w-[90%] text-center;
     line-height: 1.2;
+  }
+
+  /* Only apply hyphenation on smaller screens */
+  @media (max-width: 405px) {
+    .bingo-tile {
+      hyphens: auto;
+    }
   }
 
   .bingo-tile.ticked {
