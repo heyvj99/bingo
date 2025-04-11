@@ -143,7 +143,7 @@ function App() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-yellow-200">
         <div className="mobile-message">
-          <h1 className="neo-title mb-2">Job Seeker Struggles</h1>
+          <h1 className="neo-title mb-2">Job Hunt Survival</h1>
           <p>To get a good experience, please access this on desktop.</p>
         </div>
       </div>
