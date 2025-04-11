@@ -128,18 +128,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col p-4 bg-yellow-200">
-      <header className="text-center mb-4 flex flex-col gap-2">
+    <div className="min-h-screen flex flex-col items-center p-4 bg-yellow-200">
+      <header className="text-center mb-4 flex flex-col gap-1">
         <h1 className="neo-title mb-1 font-display">Job Seeker Struggles</h1>
         <p className="neo-subtitle text-black/80 font-display">
           Let it out. You've earned this. Tick what you've survived.
         </p>
-        <div className="mt-2">
-          <AnimatedScore score={bingoCount} isAnimating={isScoreAnimating} />
-        </div>
       </header>
 
-      <div className="flex-grow flex items-center justify-center my-4">
+      <div className="flex-grow flex items-center justify-center my-2">
         <div id="bingo-grid" className="bingo-grid relative">
           {BINGO_CONTENT.map((content, index) => (
             <div
@@ -186,16 +183,24 @@ function App() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-4 mb-4">
-        <button onClick={handleScreenshot} className="neo-button font-display">
-          DOWNLOAD & SHARE
-        </button>
-        <button
-          onClick={handleReset}
-          className="neo-button font-display bg-white text-dark"
-        >
-          RESET
-        </button>
+      <div className="flex justify-between items-center mx-2 mb-4 w-full px-[9px] max-w-2xl">
+        <div>
+          <AnimatedScore score={bingoCount} isAnimating={isScoreAnimating} />
+        </div>
+        <div className="flex gap-4 ">
+          <button
+            onClick={handleReset}
+            className="neo-button font-display bg-white text-dark"
+          >
+            RESET
+          </button>
+          <button
+            onClick={handleScreenshot}
+            className="neo-button font-display"
+          >
+            DOWNLOAD & SHARE
+          </button>
+        </div>
       </div>
 
       {/* Big celebration when score hits 12 */}

@@ -19,7 +19,7 @@ const AnimatedScore = ({ score, isAnimating }) => {
   return (
     <div className="relative inline-block">
       {/* Score display */}
-      <div className="text-xl font-display bg-white border-2 border-black px-3 py-1 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      <div className="text-xl font-display bg-white-0 py-1 inline-block">
         <span className="font-normal">BINGOS: </span>
         <span ref={scoreRef} className="font-bold">
           {score}

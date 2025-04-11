@@ -39,7 +39,7 @@
   }
 
   .neo-subtitle {
-    @apply text-lg font-medium;
+    @apply text-lg font-normal;
     font-family: "Archivo Black", sans-serif;
   }
 }
