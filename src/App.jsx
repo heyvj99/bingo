@@ -24,7 +24,7 @@ const BINGO_CONTENT = [
   "Had technical issues in interview",
   "Applied for a role I was overqualified for",
   "Felt like giving up",
-  "FREE SPACE",
+  "Got a referral from strangers",
   "Heard 'we went with another candidate'",
   "Reached final round twice this month",
   "Rewrote portfolio 3 times",
