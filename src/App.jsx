@@ -153,7 +153,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col items-center p-2 sm:p-4 bg-yellow-200">
       <header className="text-center mb-2 sm:mb-4 flex flex-col gap-1 w-full max-w-[min(100vw-1rem,42rem)]">
-        <h1 className="neo-title mb-1 font-display">Job Seeker Struggles</h1>
+        <h1 className="neo-title mb-1 font-display">Job Hunt Survival</h1>
         <p className="neo-subtitle text-black/80 font-display">
           Let it out. You've earned this. Tick what you've survived.
         </p>
