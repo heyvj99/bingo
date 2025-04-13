@@ -27,7 +27,7 @@ const BINGO_CONTENT = [
   "Laid off recently",
   "Heard 'we went with another candidate'",
   "Reached final round twice this month",
-  "Rewrote portfolio 10 times",
+  "Rewrote portfolio 15 times",
   "Tried networking but no response",
   "Did 20+ applications in one sitting",
   "Got a referral — still got rejected",
